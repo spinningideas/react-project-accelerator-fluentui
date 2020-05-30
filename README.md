@@ -1,16 +1,12 @@
-React Project Accelerator was conceived to aid starting React JS projects and provide a reference implementation for bootstrapping projects.
+React Project Accelerator Fluent was conceived to aid starting React JS projects and provide a reference implementation for bootstrapping projects.
 
-The project aims to include most of the basic things one needs and includes localization and authorization via services based approach using hooks to manage state. The project was itself bootstrapped from [create react app](https://reactjs.org/docs/create-a-new-react-app.html) and uses [react material ui](https://material-ui.com/) for its UX.
+The project was itself bootstrapped from [create react app](https://reactjs.org/docs/create-a-new-react-app.html) and uses [fluent ui](https://developer.microsoft.com/en-us/fluentui/#/controls/web) for its UX.
 
-There are many starter kits...this is yet another...here is a list of others:
-
-https://blog.bitsrc.io/11-react-application-boilerplates-for-2019-b49a8226ea54
-
-##
+The project aims to include most of the basic things one needs and includes localization and authorization via services based approach using hooks to manage state.
 
 ### Live Demo
 
-https://spinningideas.github.io/react-project-accelerator/
+https://spinningideas.github.io/react-project-accelerator-fluentui/
 
 ## Get Started
 
