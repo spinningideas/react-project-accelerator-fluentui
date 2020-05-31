@@ -3,10 +3,10 @@ import { withRouter } from 'react-router-dom';
 // UI Kit Components
 import {
   DefaultButton,
-  IconButton,
+	IconButton,
+	CommandBar,
   CommandBarButton,
   Stack,
-  DefaultPalette,
   Dropdown,
   Panel,
   PanelType,
@@ -122,18 +122,22 @@ function Navigation(props) {
   const navigate = (route) => {
     setOpenNavigation(false);
     navigationService.navigate(props, route, null);
+	};
+	
+	const TopNavMenu = () => {
+		return <CommandBar
+			items={navMenuItems}
+		/>    
   };
 
   const NavMenu = () => {
     const items = navMenuItems.map((item) => (
-      <Stack.Item key={item.key}>
-        <CommandBarButton
-          className="p-3 full-width text-left"
-          iconProps={item.iconProps}
-          text={item.text}
-          onClick={item.onClick}
-        />
-      </Stack.Item>
+			<CommandBarButton
+				className="p-3 full-width text-left"
+				iconProps={item.iconProps}
+				text={item.text}
+				onClick={item.onClick}
+			/>
     ));
     return items;
   };
@@ -141,15 +145,18 @@ function Navigation(props) {
   return (
     <Grid>
       <GridRow styles={navBarStyles}>
-        <GridColumn sm={2} md={2} lg={2}>
+        <GridColumn sm={1} md={1} lg={1}>
           <IconButton onClick={() => toggleDrawerOpen()} color="inherit" aria-label="menu">
             <FontIcon iconName="GlobalNavButton" />
           </IconButton>
         </GridColumn>
-        <GridColumn sm={5} md={7} lg={4}>
-          <Text variant="xLarge">{appTitle()}</Text>
+        <GridColumn sm={2} md={2} lg={2}>
+          <Text variant="xLarge">{appTitle()}</Text>					
         </GridColumn>
-        <GridColumn sm={3} md={3} lg={3}>
+				<GridColumn sm={3} md={4} lg={5}>					
+					<TopNavMenu />				
+        </GridColumn>
+        <GridColumn sm={2} md={2} lg={1}>			
           <Dropdown
             id="language-menu"
             styles={languageDropdownStyles}
@@ -158,7 +165,7 @@ function Navigation(props) {
             onChange={languageSelectionMakeChoice}
           ></Dropdown>
         </GridColumn>
-        <GridColumn sm={2} md={3} lg={3}>
+        <GridColumn sm={2} md={1} lg={1}>
           {props.userSignedIn && <DefaultButton onClick={() => handleSignOutClick()}>{locData.signout}</DefaultButton>}
           {!props.userSignedIn && (
             <DefaultButton onClick={() => handleInitiateSignInClick()}>{locData.signin}</DefaultButton>
