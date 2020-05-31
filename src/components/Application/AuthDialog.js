@@ -1,7 +1,7 @@
 import React from 'react';
 import { PrimaryButton, DefaultButton, Dialog, DialogType, DialogFooter } from '@fluentui/react/lib';
 
-function SignInDialog(props) {
+function AuthDialog(props) {
   const dialogContentProps = {
     type: DialogType.largeHeader,
     closeButtonAriaLabel: props.locData.cancel,
@@ -29,4 +29,4 @@ function SignInDialog(props) {
   );
 }
 
-export default SignInDialog;
+export default AuthDialog;

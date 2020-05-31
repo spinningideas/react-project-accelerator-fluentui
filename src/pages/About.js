@@ -50,7 +50,7 @@ function About() {
 
             <h4>{locData.technology}</h4>
 
-            <p>{locData.technologydescription}:</p>
+            <p>{locData.technologydescription}</p>
           </CardItem>
         </Card>
 				

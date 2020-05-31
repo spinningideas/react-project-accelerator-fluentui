@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 // UI Kit
-import { PrimaryButton } from '@fluentui/react/lib';
-import { Stack } from '@fluentui/react/lib/Stack';
-import { TextField } from '@fluentui/react/lib/TextField';
+import { Stack, PrimaryButton, Checkbox, TextField } from '@fluentui/react/lib';
 // components
 import Card from 'components/Shared/Card/Card';
 import CardItem from 'components/Shared/Card/CardItem';
@@ -19,7 +17,17 @@ function Contact() {
     async function loadLocalization() {
       const locCode = localizationService.getUserLocale();
       const locDataLoaded = await localizationService.getLocalizedTextSet(
-        ['contact', 'contactdescription', 'moreinfo', 'save', 'name', 'email', 'message', 'messagedescription'],
+        [
+          'contact',
+          'contactdescription',
+          'contactoptionhighprioritytext',
+          'moreinfo',
+          'save',
+          'name',
+          'email',
+          'message',
+          'messagedescription'
+        ],
         locCode
       );
       setLocData(locDataLoaded);
@@ -55,6 +63,9 @@ function Contact() {
                       rows={4}
                       defaultValue={locData.messagedescription}
                     />
+                  </div>
+                  <div className="pt-2">
+                    <Checkbox label={locData.contactoptionhighprioritytext} defaultChecked />
                   </div>
                 </form>
               </CardItem>

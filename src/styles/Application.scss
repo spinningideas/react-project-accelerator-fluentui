@@ -352,37 +352,12 @@ input[type='text']:focus {
   outline: 0;
   outline: thin dotted \9;
   background-image: none;
-  /* IE6-9 */
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
 }
 
 textarea,
 input {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  border-radius: 0;
-}
-
-.input-append input,
-.input-append select {
-  border-radius: 0;
-}
-
-.btn-group {
-  vertical-align: inherit;
-}
-
-.input-group-addon {
-  padding: 2px 8px;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1;
-  text-align: center;
-  color: #e3e3e3;
-  background-color: #212121;
-  border: 1px solid #212121;
   border-radius: 0;
 }
 

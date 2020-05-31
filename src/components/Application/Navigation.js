@@ -1,34 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 // UI Kit Components
-import {
-  DefaultButton,
-  IconButton,
-  CommandBar,
-  CommandBarButton,
-  Stack,
-  Dropdown,
-  Panel,
-  PanelType,
-  FontIcon,
-  Text
-} from '@fluentui/react/lib';
-
+import { IconButton, Stack, Panel, PanelType, FontIcon } from '@fluentui/react/lib';
 // Services
 import LocalizationService from 'services/LocalizationService';
 import NavigationService from 'services/NavigationService';
 // Components
 import { Grid, GridRow, GridColumn } from 'components/Shared/Grid';
-import SignInDialog from 'components/Application/SignInDialog';
+import AuthButton from 'components/Application/AuthButton';
+import AuthDialog from 'components/Application/AuthDialog';
+import AppTitle from 'components/Application/AppTitle';
+import TopNavLinks from 'components/Application/TopNavLinks';
+import SideNavLinks from 'components/Application/SideNavLinks';
+import LanguageSelection from 'components/Application/LanguageSelection';
 
-import { objectInArray } from 'utils';
+// import { objectInArray } from 'utils';
 /* 
-TODO: pull in or implement navbar? https://github.com/microsoft/fluentui/issues/13409
+TODO: improve this navbar or pull one in once this happens: 
+https://github.com/microsoft/fluentui/issues/13409
 */
 
 const sideMenuWidth = 245;
-
-const languageDropdownStyles = { dropdown: { width: 100 } };
 
 function Navigation(props) {
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -61,17 +53,6 @@ function Navigation(props) {
     setOpenNavigation(false);
   };
 
-  const languageOptions = [
-    { key: 'enUS', text: 'English' },
-    { key: 'zhCN', text: 'Chinese' },
-    { key: 'esES', text: 'Spanish' }
-  ];
-
-  const languageSelectionMakeChoice = (evnt, item) => {
-    localizationService.setUserLocale(item.key);
-    window.location.reload();
-  };
-
   const handleInitiateSignInClick = () => {
     setSignInDialogOpen(true);
   };
@@ -86,16 +67,10 @@ function Navigation(props) {
     props.handleSignOut();
   };
 
-  const appTitle = () => {
-    //if (isWidthUp('sm', props.width)) {
-    //  return <>{locData.apptitle}</>;
-    //}
-    return <>RPA</>;
-  };
-
   const navBarStyles = {
     borderBottom: '1px solid #eeeeee',
     padding: '5px',
+    paddingTop: '10px',
     height: '50px'
   };
 
@@ -121,8 +96,10 @@ function Navigation(props) {
   ];
 
   const getNavMenuItems = (showIcons) => {
-		let baseNavItems = navMenuItems;
-		/*
+    let baseNavItems = navMenuItems;
+    /*
+		Example of adding menu items at run time:
+
 		let signOutItem = {
 			key: 'signout',
 			text: locData.signout,
@@ -134,11 +111,12 @@ function Navigation(props) {
       baseNavItems.push(signOutItem);
 		}
 		*/
-		
-    if (showIcons===false) {
-      baseNavItems = baseNavItems.filter((props)=> {
-        delete props.iconProps;
-        return true;
+
+    if (showIcons === false) {
+      // remove icon from each item
+      return baseNavItems.map((item) => {
+        let itemClone = Object.assign({}, item);
+        return delete itemClone.iconProps, itemClone;
       });
     }
     return baseNavItems;
@@ -149,53 +127,34 @@ function Navigation(props) {
     navigationService.navigate(props, route, null);
   };
 
-  const TopNavMenu = () => {
-		const topNavItems = getNavMenuItems(false);
-    return <CommandBar items={topNavItems} />;
-  };
-
-  const NavMenu = () => {
-		const sideNavItems = getNavMenuItems(true);
-    const items = sideNavItems.map((item) => (
-      <CommandBarButton
-			  key={item.key}
-        className="p-3 full-width text-left"
-        iconProps={item.iconProps}
-        text={item.text}
-        onClick={item.onClick}
-      />
-    ));
-    return items;
-  };
-
   return (
     <Grid>
       <GridRow styles={navBarStyles}>
-        <GridColumn sm={1} md={1} lg={1}>
+        <GridColumn sm={3} md={4} lg={5}>
           <IconButton onClick={() => toggleDrawerOpen()} color="inherit" aria-label="menu">
             <FontIcon iconName="GlobalNavButton" />
           </IconButton>
+          <AppTitle locData={locData} />
         </GridColumn>
-        <GridColumn sm={2} md={2} lg={2}>
-          <Text variant="xLarge">{appTitle()}</Text>
+        <GridColumn sm={3} md={4} lg={3}>
+          <TopNavLinks getNavMenuItems={getNavMenuItems} />
         </GridColumn>
-        <GridColumn sm={3} md={4} lg={5}>
-          <TopNavMenu />
+        <GridColumn sm={3} md={2} lg={2}>
+          <LanguageSelection selectedLocCode={selectedLocCode} localizationService={localizationService} />
         </GridColumn>
-        <GridColumn sm={2} md={2} lg={1}>
-          <Dropdown
-            id="language-menu"
-            styles={languageDropdownStyles}
-            selectedKey={selectedLocCode ? selectedLocCode : undefined}
-            options={languageOptions}
-            onChange={languageSelectionMakeChoice}
-          ></Dropdown>
-        </GridColumn>
-        <GridColumn sm={2} md={1} lg={1}>
-          {props.userSignedIn && <DefaultButton onClick={() => handleSignOutClick()}>{locData.signout}</DefaultButton>}
-          {!props.userSignedIn && (
-            <DefaultButton onClick={() => handleInitiateSignInClick()}>{locData.signin}</DefaultButton>
-          )}
+        <GridColumn sm={3} md={2} lg={2}>
+          <AuthButton
+            locData={locData}
+            userSignedIn={props.userSignedIn}
+            handleSignOutClick={handleSignOutClick}
+            handleInitiateSignInClick={handleInitiateSignInClick}
+          />
+          <AuthDialog
+            locData={locData}
+            open={signInDialogOpen}
+            handleSignIn={handleSignInClick}
+            handleSignInCancel={() => setSignInDialogOpen(false)}
+          />
         </GridColumn>
       </GridRow>
       <Panel
@@ -206,15 +165,9 @@ function Navigation(props) {
         onDismiss={closeDrawer}
       >
         <Stack>
-          <NavMenu />
+          <SideNavLinks getNavMenuItems={getNavMenuItems} />
         </Stack>
       </Panel>
-      <SignInDialog
-        locData={locData}
-        open={signInDialogOpen}
-        handleSignIn={handleSignInClick}
-        handleSignInCancel={() => setSignInDialogOpen(false)}
-      />
     </Grid>
   );
 }
