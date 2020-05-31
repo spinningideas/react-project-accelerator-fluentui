@@ -6,8 +6,10 @@ import {
   IconButton,
   CommandBarButton,
   Stack,
+  DefaultPalette,
   Dropdown,
   Panel,
+  PanelType,
   FontIcon,
   Text
 } from '@fluentui/react/lib';
@@ -16,11 +18,16 @@ import {
 import LocalizationService from 'services/LocalizationService';
 import NavigationService from 'services/NavigationService';
 // Components
+import { Grid, GridRow, GridColumn } from 'components/Shared/Grid';
 import SignInDialog from 'components/Application/SignInDialog';
 
 /* 
 TODO: pull in or implement navbar? https://github.com/microsoft/fluentui/issues/13409
 */
+
+const sideMenuWidth = 245;
+
+const languageDropdownStyles = { dropdown: { width: 100 } };
 
 function Navigation(props) {
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -59,9 +66,13 @@ function Navigation(props) {
     { key: 'esES', text: 'Spanish' }
   ];
 
-  const languageSelectionMakeChoice = (locale) => {
-    localizationService.setUserLocale(locale);
+  const languageSelectionMakeChoice = (evnt, item) => {
+    localizationService.setUserLocale(item.key);
     window.location.reload();
+  };
+
+  const handleInitiateSignInClick = () => {
+    setSignInDialogOpen(true);
   };
 
   const handleSignInClick = () => {
@@ -70,6 +81,7 @@ function Navigation(props) {
   };
 
   const handleSignOutClick = () => {
+    setSignInDialogOpen(false);
     props.handleSignOut();
   };
 
@@ -78,6 +90,12 @@ function Navigation(props) {
     //  return <>{locData.apptitle}</>;
     //}
     return <>RPA</>;
+  };
+
+  const navBarStyles = {
+    borderBottom: '1px solid #eeeeee',
+    padding: '5px',
+    height: '45px'
   };
 
   const navMenuItems = [
@@ -110,7 +128,7 @@ function Navigation(props) {
     const items = navMenuItems.map((item) => (
       <Stack.Item key={item.key}>
         <CommandBarButton
-          className="p-2 m-2 full-width text-left"
+          className="p-3 full-width text-left"
           iconProps={item.iconProps}
           text={item.text}
           onClick={item.onClick}
@@ -121,26 +139,39 @@ function Navigation(props) {
   };
 
   return (
-    <div>
-      <Stack position="static">
-        <Stack.Item>
+    <Grid>
+      <GridRow styles={navBarStyles}>
+        <GridColumn sm={2} md={2} lg={2}>
           <IconButton onClick={() => toggleDrawerOpen()} color="inherit" aria-label="menu">
             <FontIcon iconName="GlobalNavButton" />
           </IconButton>
+        </GridColumn>
+        <GridColumn sm={5} md={7} lg={4}>
           <Text variant="xLarge">{appTitle()}</Text>
+        </GridColumn>
+        <GridColumn sm={3} md={3} lg={3}>
           <Dropdown
             id="language-menu"
+            styles={languageDropdownStyles}
             selectedKey={selectedLocCode ? selectedLocCode : undefined}
             options={languageOptions}
             onChange={languageSelectionMakeChoice}
           ></Dropdown>
-          {props.userSignedIn && <DefaultButton onClick={() => handleSignOutClick}>{locData.signout}</DefaultButton>}
+        </GridColumn>
+        <GridColumn sm={2} md={3} lg={3}>
+          {props.userSignedIn && <DefaultButton onClick={() => handleSignOutClick()}>{locData.signout}</DefaultButton>}
           {!props.userSignedIn && (
-            <DefaultButton onClick={() => setSignInDialogOpen(true)}>{locData.signin}</DefaultButton>
+            <DefaultButton onClick={() => handleInitiateSignInClick()}>{locData.signin}</DefaultButton>
           )}
-        </Stack.Item>
-      </Stack>
-      <Panel isLightDismiss isOpen={openNavigation} onDismiss={closeDrawer}>
+        </GridColumn>
+      </GridRow>
+      <Panel
+        isLightDismiss
+        type={PanelType.customNear}
+        customWidth={sideMenuWidth + 'px'}
+        isOpen={openNavigation}
+        onDismiss={closeDrawer}
+      >
         <Stack>
           <NavMenu />
         </Stack>
@@ -151,7 +182,7 @@ function Navigation(props) {
         handleSignIn={handleSignInClick}
         handleSignInCancel={() => setSignInDialogOpen(false)}
       />
-    </div>
+    </Grid>
   );
 }
 

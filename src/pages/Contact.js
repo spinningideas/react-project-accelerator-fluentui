@@ -5,8 +5,8 @@ import { PrimaryButton } from '@fluentui/react/lib';
 import { Stack } from '@fluentui/react/lib/Stack';
 import { TextField } from '@fluentui/react/lib/TextField';
 // components
-import Card from 'components/Card/Card';
-import CardItem from 'components/Card/CardItem';
+import Card from 'components/Shared/Card/Card';
+import CardItem from 'components/Shared/Card/CardItem';
 // Services
 import LocalizationService from 'services/LocalizationService';
 
@@ -29,13 +29,16 @@ function Contact() {
 
   return (
     <Stack spacing={0}>
-      <Stack.Item xs={12} className="contentpanel-site">
-        <h3>{locData.contact}</h3>
-        <p>{locData.contactdescription}</p>
-
+      <Stack.Item xs={12}>
+        <Card>
+          <CardItem>
+            <h3>{locData.contact}</h3>
+            <p>{locData.contactdescription}</p>
+          </CardItem>
+        </Card>
         <Stack spacing={0}>
-          <Stack.Item xs={12} md={12} lg={12} xl={12} className="card-row-column">
-            <Card className="card white-bg-color bl-1 bb-1">
+          <Stack.Item xs={12} md={12} lg={12} xl={12}>
+            <Card>
               <CardItem>
                 <form noValidate autoComplete="off">
                   <div>

@@ -1,4 +1,7 @@
 @import url('//fonts.googleapis.com/css?family=Roboto');
+// import grid only from office-ui-fabric-core
+@import 'office-ui-fabric-core/dist/sass/Fabric.scss';
+
 /*
 
 Grey
@@ -483,9 +486,5 @@ input {
   }
   h5 {
     font-size: 1em;
-  }
-
-  .MuiButton-textPrimary {
-    padding: 0 10px !important;
   }
 }

@@ -6,7 +6,11 @@ Example Usage:
 */
 
 function GridRow(props) {
-  return <div className="ms-Grid-row">{props.children}</div>;
+  return (
+    <div className="ms-Grid-row" style={props.styles}>
+      {props.children}
+    </div>
+  );
 }
 
 export default GridRow;

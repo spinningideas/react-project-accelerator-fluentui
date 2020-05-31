@@ -3,9 +3,9 @@ import { PrimaryButton, DefaultButton, Dialog, DialogType, DialogFooter } from '
 
 function SignInDialog(props) {
   const dialogContentProps = {
-    type: DialogType.normal,
-    title: props.locData.sign,
+    type: DialogType.largeHeader,
     closeButtonAriaLabel: props.locData.cancel,
+    title: props.locData.signin,
     subText: props.locData.signindescription
   };
 
@@ -18,17 +18,14 @@ function SignInDialog(props) {
   };
 
   return (
-    <div>
-      <Dialog open={props.open} dialogContentProps={dialogContentProps}>
-        {props.content}
-        <DialogFooter>
-          <DefaultButton onClick={() => handleCancelClose(false)}>{props.locData.cancel}</DefaultButton>
-          <PrimaryButton onClick={() => handleSignInClose(true)} color="secondary" autoFocus>
-            {props.locData.signin}
-          </PrimaryButton>
-        </DialogFooter>
-      </Dialog>
-    </div>
+    <Dialog hidden={!props.open} onDismiss={() => handleCancelClose()} dialogContentProps={dialogContentProps}>
+      <DialogFooter>
+        <DefaultButton onClick={() => handleCancelClose()}>{props.locData.cancel}</DefaultButton>
+        <PrimaryButton onClick={() => handleSignInClose(true)} color="secondary" autoFocus>
+          {props.locData.signin}
+        </PrimaryButton>
+      </DialogFooter>
+    </Dialog>
   );
 }
 

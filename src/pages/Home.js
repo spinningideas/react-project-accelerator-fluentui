@@ -8,10 +8,10 @@ import AuthService from 'services/AuthService';
 import LocalizationService from 'services/LocalizationService';
 import NavigationService from 'services/NavigationService';
 // components
-import Card from 'components/Card/Card';
-import CardItem from 'components/Card/CardItem';
-import Modal from 'components/Modal';
-import Notifications from 'components/Notifications';
+import Card from 'components/Shared/Card/Card';
+import CardItem from 'components/Shared/Card/CardItem';
+import Modal from 'components/Shared/Modal';
+import Notifications from 'components/Shared/Notifications';
 import GetStartedMessage from 'components/Home/GetStartedMessage';
 
 function Home() {
@@ -61,17 +61,18 @@ function Home() {
   return (
     <Stack spacing={0}>
       <Stack.Item xs={12} className="contentpanel-site">
-        <h2>{locData.homepagewelcome}</h2>
-
+        <Card>
+          <CardItem>
+            <h2>{locData.homepagewelcome}</h2>
+						<GetStartedMessage locData={locData} displayGetStarted={true} />
+          </CardItem>
+        </Card>
         <Stack spacing={0}>
-          <Stack.Item xs={12}>
-            <GetStartedMessage locData={locData} displayGetStarted={true} />
-          </Stack.Item>
           <Stack.Item xs={12} className="pt-1">
             {userSignedIn && (
               <Stack>
                 <Stack.Item xs={12} className="pt-1">
-                  <Card className="card white-bg-color bl-1 bb-1">
+                  <Card>
                     <CardItem>
                       <h4 className="card-title">{locData.authenticatedcontent}</h4>
                       <p>{locData.authenticatedcontentdescription}</p>
@@ -83,7 +84,7 @@ function Home() {
 
             <Stack>
               <Stack.Item xs={12} className="pt-1 pb-1">
-                <Card className="card white-bg-color bl-1 bb-1">
+                <Card>
                   <CardItem>
                     <h4 className="card-title">{locData.notifications}</h4>
                     <p>{locData.notificationsdescription}</p>
