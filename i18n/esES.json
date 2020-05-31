@@ -10,6 +10,7 @@
   "messagedescription": "Ingrese el mensaje...",
   "contact": "Contacto",
   "contactdescription": "Rellene el formulario para enviar información de contacto: este es un ejemplo de uso del formulario y su estilo",
+  "contactoptionhighprioritytext": "¿Alta prioridad?",
   "moreinfo": "Más Información",
   "save": "Salvar",
   "cancel": "Cancelar",
