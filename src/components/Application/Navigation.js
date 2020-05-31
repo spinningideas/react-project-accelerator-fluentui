@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 // UI Kit Components
 import {
   DefaultButton,
-	IconButton,
-	CommandBar,
+  IconButton,
+  CommandBar,
   CommandBarButton,
   Stack,
   Dropdown,
@@ -21,6 +21,7 @@ import NavigationService from 'services/NavigationService';
 import { Grid, GridRow, GridColumn } from 'components/Shared/Grid';
 import SignInDialog from 'components/Application/SignInDialog';
 
+import { objectInArray } from 'utils';
 /* 
 TODO: pull in or implement navbar? https://github.com/microsoft/fluentui/issues/13409
 */
@@ -95,7 +96,7 @@ function Navigation(props) {
   const navBarStyles = {
     borderBottom: '1px solid #eeeeee',
     padding: '5px',
-    height: '45px'
+    height: '50px'
   };
 
   const navMenuItems = [
@@ -119,25 +120,50 @@ function Navigation(props) {
     }
   ];
 
+  const getNavMenuItems = (showIcons) => {
+		let baseNavItems = navMenuItems;
+		/*
+		let signOutItem = {
+			key: 'signout',
+			text: locData.signout,
+			iconProps: { iconName: 'SignOut' },
+			onClick: () => handleSignOutClick
+		}
+
+    if (props.userSignedIn && !objectInArray(baseNavItems, 'key', 'signout')) {
+      baseNavItems.push(signOutItem);
+		}
+		*/
+		
+    if (showIcons===false) {
+      baseNavItems = baseNavItems.filter((props)=> {
+        delete props.iconProps;
+        return true;
+      });
+    }
+    return baseNavItems;
+  };
+
   const navigate = (route) => {
     setOpenNavigation(false);
     navigationService.navigate(props, route, null);
-	};
-	
-	const TopNavMenu = () => {
-		return <CommandBar
-			items={navMenuItems}
-		/>    
+  };
+
+  const TopNavMenu = () => {
+		const topNavItems = getNavMenuItems(false);
+    return <CommandBar items={topNavItems} />;
   };
 
   const NavMenu = () => {
-    const items = navMenuItems.map((item) => (
-			<CommandBarButton
-				className="p-3 full-width text-left"
-				iconProps={item.iconProps}
-				text={item.text}
-				onClick={item.onClick}
-			/>
+		const sideNavItems = getNavMenuItems(true);
+    const items = sideNavItems.map((item) => (
+      <CommandBarButton
+			  key={item.key}
+        className="p-3 full-width text-left"
+        iconProps={item.iconProps}
+        text={item.text}
+        onClick={item.onClick}
+      />
     ));
     return items;
   };
@@ -151,12 +177,12 @@ function Navigation(props) {
           </IconButton>
         </GridColumn>
         <GridColumn sm={2} md={2} lg={2}>
-          <Text variant="xLarge">{appTitle()}</Text>					
+          <Text variant="xLarge">{appTitle()}</Text>
         </GridColumn>
-				<GridColumn sm={3} md={4} lg={5}>					
-					<TopNavMenu />				
+        <GridColumn sm={3} md={4} lg={5}>
+          <TopNavMenu />
         </GridColumn>
-        <GridColumn sm={2} md={2} lg={1}>			
+        <GridColumn sm={2} md={2} lg={1}>
           <Dropdown
             id="language-menu"
             styles={languageDropdownStyles}

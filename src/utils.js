@@ -17,6 +17,17 @@ export const isNumeric = (n) => {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
+export const objectInArray = (objArray, prop, val) => {
+  if (objArray.length > 0) {
+    for (var i in objArray) {
+      if (objArray[i][prop] === val) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
 export const loadScript = (d, s, id, jsSrc, cb) => {
   if (!d.getElementById(id)) {
     const element = d.getElementsByTagName(s)[0];
