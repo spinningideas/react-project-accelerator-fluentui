@@ -10,8 +10,8 @@
   "messagedescription": "Enter message...",
   "contact": "Contact",
   "contactdescription": "Fill out the form to submit contact info - this is example use of form and styling it",
-	"contactoptionhighprioritytext": "High Priority?",
-	"moreinfo": "More Info",
+  "contactoptionhighprioritytext": "High Priority?",
+  "moreinfo": "More Info",
   "save": "Save",
   "cancel": "Cancel",
   "close": "Close",
@@ -34,7 +34,12 @@
   "modalsdescription": "Below are examples of modal dialogs",
   "error": "Error",
   "success": "Success",
+  "required": "Required",
   "view": "View",
   "authenticatedcontent": "Authenticated Content",
-  "authenticatedcontentdescription": "Here is content displayed only if users is signed in"
+  "authenticatedcontentdescription": "Here is content displayed only if users is signed in",
+  "serviceexampletitle": "View Ip Address",
+  "serviceexampledescription": "Example of use of services and HttpClient",
+  "formsexample": "Forms Example",
+  "formsexampledescription": "Example of use of forms and validation via formik"
 }
