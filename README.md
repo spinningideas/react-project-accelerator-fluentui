@@ -1,8 +1,11 @@
-React Project Accelerator Fluent was conceived to aid starting React JS projects and provide a reference implementation for bootstrapping projects.
+React Project Accelerator Fluent was conceived to aid starting React JS projects and provide a reference implementation for bootstrapping projects. The project was itself bootstrapped from [create react app](https://reactjs.org/docs/create-a-new-react-app.html) and uses [fluent ui](https://developer.microsoft.com/en-us/fluentui/#/controls/web) and grid from [Office Fabric Core](https://developer.microsoft.com/en-us/fluentui#/styles/web/layout) for its UX.
 
-The project was itself bootstrapped from [create react app](https://reactjs.org/docs/create-a-new-react-app.html) and uses [fluent ui](https://developer.microsoft.com/en-us/fluentui/#/controls/web) and grid from [Office Fabric Core](https://developer.microsoft.com/en-us/fluentui#/styles/web/layout) for its UX.
+The project aims to include most of the basic things one needs and includes:
 
-The project aims to include most of the basic things one needs and includes localization and authorization via services based approach using hooks to manage state.
+- localization and authorization via services based approach using hooks to manage state.
+- sass
+- forms and validation via [formik](https://jaredpalmer.com/formik/) and [formik-office-ui-fabric-react](https://github.com/kmees/formik-office-ui-fabric-react)
+- use of fetch based HttpClient to call external REST API
 
 ### Live Demo
 
@@ -38,6 +41,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## More Info
 
+### React Forms
+
+- [formik](https://jaredpalmer.com/formik/)
+
 ### Fluent UI
 
 - [Get Started](https://developer.microsoft.com/en-us/fluentui#/get-started/web)
@@ -45,6 +52,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [Controls/Examples](https://developer.microsoft.com/en-us/fluentui#/controls/web)
 - [Responsive UX](https://material-ui.com/guides/responsive-ui/)
 - [Icons](https://developer.microsoft.com/en-us/fluentui#/styles/web/icons)
+- [Forms - formik-office-ui-fabric-react](https://github.com/kmees/formik-office-ui-fabric-react)
 
 ## Office Fabric Core
 

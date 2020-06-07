@@ -9,6 +9,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "formik": "^2.1.4",
+    "formik-office-ui-fabric-react": "^1.0.0",
     "gh-pages": "^2.2.0",
     "history": "^4.10.1",
     "node-sass": "^4.14.1",

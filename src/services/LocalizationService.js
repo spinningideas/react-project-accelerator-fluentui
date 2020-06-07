@@ -56,14 +56,13 @@ const LocalizationService = () => {
   };
 
   const getLocalizedTextSet = async (keys, locale) => {
-    // TODO: async import the locale file for given locale
+    // async import the locale file for given locale
     // and extract the set of localized text values for given keys
     let textSet = {};
     const localizedData = await getLocalizedData(locale);
     if (localizedData) {
       let localizedTextSet = localizedData;
       const keysLocalizedTextSet = Object.keys(localizedTextSet);
-
       for (const desiredKey of keys) {
         for (const key of keysLocalizedTextSet) {
           if (desiredKey === key) {
@@ -72,15 +71,11 @@ const LocalizationService = () => {
         }
       }
     }
-
     return textSet;
   };
 
   const getLocalizedData = async (localeCode) => {
     const localizedDataFilePath = process.env.PUBLIC_URL + `/i18n/${localeCode}.json`;
-    // return await import(localizedDataFilePath);
-    // const localizedFile = await require(`${localizedDataFilePath}`);
-    // return localizedFile;
     return fetch(localizedDataFilePath)
       .then((response) => {
         return response.json();
