@@ -1,31 +1,31 @@
 {
   "files": {
+    "static/js/0.0cab69db.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/0.0cab69db.chunk.js",
+    "static/js/0.0cab69db.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/0.0cab69db.chunk.js.map",
+    "static/js/1.53891f95.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/1.53891f95.chunk.js",
+    "static/js/1.53891f95.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/1.53891f95.chunk.js.map",
+    "static/js/2.43129c9a.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/2.43129c9a.chunk.js",
+    "static/js/2.43129c9a.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/2.43129c9a.chunk.js.map",
+    "static/js/3.90495229.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/3.90495229.chunk.js",
+    "static/js/3.90495229.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/3.90495229.chunk.js.map",
     "main.css": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/css/main.ae3aef28.chunk.css",
-    "main.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/main.b62fb385.chunk.js",
-    "main.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/main.b62fb385.chunk.js.map",
-    "runtime-main.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/runtime-main.20d664b0.js",
-    "runtime-main.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/runtime-main.20d664b0.js.map",
-    "static/js/2.3733b89c.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/2.3733b89c.chunk.js",
-    "static/js/2.3733b89c.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/2.3733b89c.chunk.js.map",
-    "static/js/3.38c260a4.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/3.38c260a4.chunk.js",
-    "static/js/3.38c260a4.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/3.38c260a4.chunk.js.map",
-    "static/js/4.21d37e0c.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/4.21d37e0c.chunk.js",
-    "static/js/4.21d37e0c.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/4.21d37e0c.chunk.js.map",
-    "static/js/5.09175961.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/5.09175961.chunk.js",
-    "static/js/5.09175961.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/5.09175961.chunk.js.map",
-    "static/js/6.de5b6413.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/6.de5b6413.chunk.js",
-    "static/js/6.de5b6413.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/6.de5b6413.chunk.js.map",
+    "main.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/main.aa31bcf7.chunk.js",
+    "main.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/main.aa31bcf7.chunk.js.map",
+    "runtime-main.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/runtime-main.1e7f114a.js",
+    "runtime-main.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/runtime-main.1e7f114a.js.map",
+    "static/js/6.b65d9799.chunk.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/6.b65d9799.chunk.js",
+    "static/js/6.b65d9799.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/6.b65d9799.chunk.js.map",
     "index.html": "https://spinningideas.github.io/react-project-accelerator-fluentui/index.html",
-    "precache-manifest.7df11170bf1bc5afffd394144367fb7f.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/precache-manifest.7df11170bf1bc5afffd394144367fb7f.js",
+    "precache-manifest.0b5760eb45efd47f07cd1415d1fda05a.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/precache-manifest.0b5760eb45efd47f07cd1415d1fda05a.js",
     "service-worker.js": "https://spinningideas.github.io/react-project-accelerator-fluentui/service-worker.js",
     "static/css/main.ae3aef28.chunk.css.map": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/css/main.ae3aef28.chunk.css.map",
-    "static/js/2.3733b89c.chunk.js.LICENSE.txt": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/2.3733b89c.chunk.js.LICENSE.txt",
-    "static/js/3.38c260a4.chunk.js.LICENSE.txt": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/3.38c260a4.chunk.js.LICENSE.txt"
+    "static/js/0.0cab69db.chunk.js.LICENSE.txt": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/0.0cab69db.chunk.js.LICENSE.txt",
+    "static/js/6.b65d9799.chunk.js.LICENSE.txt": "https://spinningideas.github.io/react-project-accelerator-fluentui/static/js/6.b65d9799.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.20d664b0.js",
-    "static/js/2.3733b89c.chunk.js",
+    "static/js/runtime-main.1e7f114a.js",
+    "static/js/6.b65d9799.chunk.js",
     "static/css/main.ae3aef28.chunk.css",
-    "static/js/main.b62fb385.chunk.js"
+    "static/js/main.aa31bcf7.chunk.js"
   ]
 }

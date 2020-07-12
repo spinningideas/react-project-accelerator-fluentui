@@ -37,7 +37,7 @@
   "required": "Required",
   "view": "View",
   "authenticatedcontent": "Authenticated Content",
-  "authenticatedcontentdescription": "Here is content displayed only if users is signed in",
+  "authenticatedcontentdescription": "Here is content displayed only if user is signed in",
   "serviceexampletitle": "View Ip Address",
   "serviceexampledescription": "Example of use of services and HttpClient",
   "formsexample": "Forms Example",
