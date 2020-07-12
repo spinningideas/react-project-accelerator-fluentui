@@ -71,7 +71,7 @@ function Home(props) {
   };
 
   const navigateToContact = () => {
-    navigationService.navigate(props, '/contact');
+    navigationService.navigate(props, '/contact/testrouteparam');
   };
 
   const showIpAddressUsingHttpClient = async () => {

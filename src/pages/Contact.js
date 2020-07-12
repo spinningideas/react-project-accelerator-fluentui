@@ -5,7 +5,6 @@ import { Stack, PrimaryButton, Checkbox } from '@fluentui/react/lib';
 // forms
 import { Formik, Form, Field } from 'formik';
 import { FormikTextField } from 'formik-office-ui-fabric-react';
-
 // components
 import Card from 'components/Shared/Card/Card';
 import CardItem from 'components/Shared/Card/CardItem';
@@ -13,11 +12,11 @@ import Notifications from 'components/Shared/Notifications';
 // Services
 import LocalizationService from 'services/LocalizationService';
 
-function Contact() {
+function Contact(props) {
   const [locData, setLocData] = useState({});
   const [formIsSubmitting, setFormIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
+    name: props.match && props.match.params && props.match.params.name ? props.match.params.name : '',
     email: '',
     message: '',
     highpriority: false

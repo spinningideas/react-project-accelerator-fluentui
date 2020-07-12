@@ -8,6 +8,8 @@ import AuthService from 'services/AuthService';
 import AnalyticsService from 'services/AnalyticsService';
 // Components
 import Navigation from 'components/Application/Navigation';
+// Utils
+import { reloadWindow } from 'utils';
 
 function Application(props) {
   const [userSignedIn, setUserSignedIn] = useState(false);
@@ -40,16 +42,12 @@ function Application(props) {
 
   const handleSignIn = () => {
     authService.signIn();
-    if (window && window.location) {
-      window.location.reload(true);
-    }
+    reloadWindow();
   };
 
   const handleSignOut = () => {
     authService.signOut();
-    if (window && window.location) {
-      window.location.reload(true);
-    }
+    reloadWindow();
   };
 
   return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dropdown } from '@fluentui/react/lib';
+import { reloadWindow } from 'utils';
 
 const languageDropdownStyles = { dropdown: { width: 100 } };
 
@@ -12,7 +13,7 @@ const languageOptions = [
 const LanguageSelection = (props) => {
   const languageSelectionMakeChoice = (evnt, item) => {
     props.localizationService.setUserLocale(item.key);
-    window.location.reload();
+    reloadWindow();
   };
 
   return (
